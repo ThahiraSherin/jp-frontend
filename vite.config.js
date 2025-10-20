@@ -1,23 +1,18 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-  ],
+  plugins: [react(), tailwindcss()],
   server: {
     proxy: {
-      // proxy /api/* to your backend
       '/api': {
-        target: 'https://jp-backend-1-mtjn.onrender.com',
+        target: 'http://localhost:5000', // local backend for development
         changeOrigin: true,
         secure: false,
-        // optionally remove the /api prefix if backend doesn't use it:
-        // rewrite: (path) => path.replace(/^\/api/, '')
-      }
-    }
-  }
-})
+        // uncomment if backend does NOT use /api prefix
+        // rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
+});

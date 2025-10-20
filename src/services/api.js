@@ -1,28 +1,27 @@
 import axios from 'axios';
 
-// Axios instance with relative baseURL for Vite proxy
+// Use production backend URL if set, otherwise use /api for local dev (proxied in Vite)
+const backend = import.meta.env.VITE_API_URL || '/api';
+
 const api = axios.create({
-  baseURL: '/api', // Vite will proxy this to backend
-  withCredentials: true, // if you use http-only cookies
+  baseURL: backend,
+  withCredentials: true, // needed if your backend uses http-only cookies
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-// Optional: Add request interceptor if you need auth tokens
+// Request interceptor to attach token if exists
 api.interceptors.request.use(
   (config) => {
-    // Example: Add token from localStorage if you have one
     const token = localStorage.getItem('token');
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
+    if (token) config.headers.Authorization = `Bearer ${token}`;
     return config;
   },
   (error) => Promise.reject(error)
 );
 
-// Optional: Add response interceptor to handle errors globally
+// Response interceptor for global error logging
 api.interceptors.response.use(
   (response) => response,
   (error) => {
@@ -39,13 +38,12 @@ api.interceptors.response.use(
   }
 );
 
-// Auth API calls
+// Auth API wrapper
 export const authAPI = {
   register: (data) => api.post('/auth/register', data),
   login: (data) => api.post('/auth/login', data),
   logout: () => api.post('/auth/logout'),
   getProfile: () => api.get('/auth/me'),
-  // Try to request reactivation for an email (backend may implement)
   reactivate: (payload) => api.post('/auth/reactivate', payload),
 };
 
