@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 // Use VITE_API_URL if set, otherwise fall back to the deployed backend URL
-const rawBackend = import.meta.env.VITE_API_URL || 'https://jp-backend-1-mtjn.onrender.com';
-const backend = rawBackend.endsWith('/api') ? rawBackend : `${rawBackend}/api`;
+const backend = 'https://jp-backend-1-mtjn.onrender.com/api';
 
 const api = axios.create({
   baseURL: backend,
