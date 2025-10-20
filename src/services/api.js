@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-// Use production backend URL if set, otherwise use /api for local dev (proxied in Vite)
-const backend = import.meta.env.VITE_API_URL || '/api';
+// Use VITE_API_URL if set, otherwise fall back to the deployed backend URL
+const rawBackend = import.meta.env.VITE_API_URL || 'https://jp-backend-1-mtjn.onrender.com';
+const backend = rawBackend.endsWith('/api') ? rawBackend : `${rawBackend}/api`;
 
 const api = axios.create({
   baseURL: backend,
