@@ -1,0 +1,19 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <rect width="800" height="600" rx="24" fill="#F3F4F6" />
+  <g transform="translate(120,90)">
+    <ellipse cx="280" cy="360" rx="160" ry="20" fill="#E5E7EB" />
+    <circle cx="280" cy="120" r="72" fill="#60A5FA" />
+    <rect x="210" y="206" width="140" height="160" rx="12" fill="#93C5FD" />
+    <path d="M190 220c20 30 60 30 90 0" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M260 236v30" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" />
+    <rect x="60" y="40" width="120" height="80" rx="12" fill="#fff" />
+    <rect x="60" y="140" width="120" height="20" rx="6" fill="#fff" />
+    <rect x="420" y="40" width="160" height="120" rx="12" fill="#fff" />
+    <rect x="420" y="180" width="160" height="20" rx="6" fill="#fff" />
+    <g transform="translate(0,260)">
+      <rect x="0" y="0" width="480" height="120" rx="12" fill="#fff" />
+      <text x="20" y="34" font-family="Arial, sans-serif" font-size="20" fill="#374151">Find jobs that match your skills</text>
+      <text x="20" y="70" font-family="Arial, sans-serif" font-size="14" fill="#6B7280">Search roles, apply, and track your applications all in one place.</text>
+    </g>
+  </g>
+</svg>
