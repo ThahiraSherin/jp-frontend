@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router';
 
@@ -23,5 +24,6 @@ function HomePage() {
         </div>
     );
 }
+
 
 export default HomePage;

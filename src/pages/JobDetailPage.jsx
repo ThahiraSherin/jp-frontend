@@ -222,4 +222,6 @@ if (!loaderJob) {
 }
 
 export default JobDetailPage;
-export { jobLoader };
+
+
+
