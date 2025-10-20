@@ -1,10 +1,8 @@
 import axios from 'axios';
 
-// Axios instance: prefer explicit backend URL from env, otherwise use relative /api for local proxy
-const backend = import.meta.env.VITE_API_URL || 'https://jp-backend-1-mtjn.onrender.com';
-
+// Axios instance with relative baseURL for Vite proxy
 const api = axios.create({
-  baseURL: backend.endsWith('/api') ? backend : `${backend}/api`,
+  baseURL: '/api', // Vite will proxy this to backend
   withCredentials: true, // if you use http-only cookies
   headers: {
     'Content-Type': 'application/json',

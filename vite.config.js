@@ -12,7 +12,7 @@ export default defineConfig({
     proxy: {
       // proxy /api/* to your backend
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'https://jp-backend-1-mtjn.onrender.com',
         changeOrigin: true,
         secure: false,
         // optionally remove the /api prefix if backend doesn't use it:
